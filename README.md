@@ -33,10 +33,16 @@ pip install -r requirements.txt
 We used [R2plus1D model](https://arxiv.org/abs/1711.11248) for echocadriography video. In R2+1D model, the architecture decomposes all 3D convolutions into 2D spatial convolutions followed by temporal convolutions to incorporate both spatial as well as temporal information while minimizing model size.
 
 All you need to prepare is 
-- Echocardiography Dataset (112*112 avi video, A4c/A2c/PLAX echocardiography views)  
+- Echocardiography Dataset (112*112 AVI video, A4c/A2c/PLAX echocardiography views) 
+(Note: our datasets were de-identified and electrocardiogram and respirometer tracings were removed.)
+- manifest file (csv) that contain `Study_Unique_ID`, `Video_Unique_ID`, `frames`, `TARGET` (TARGET will be  0/1 in binarized outcome and numerical value if regression task)
 
+We prepared Sample csv files 
+- A4C_Scar_Binary.csv
+- A2C_ECVfraction_Binary.csv
+- A2c_ECVfraction_Regression.csv
 
-There are three models for Echo-Net Liver pipeline
-1. View-classification model
-2. Quality-control model
-3. Disease-Detection-Model (cirrhosis model and SLD model) 
+```sh
+python XXXXXXXXX.py --dataset YOUR_DATASET_PATH --manifest_path YOURMANIFEST_PATH.csv
+```
+Fin.
