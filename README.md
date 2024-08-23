@@ -11,6 +11,8 @@ In our project, we hypothesized that deep learning applied to echocardiography c
 
 Yuki Sahashi, MD, MSc; Milos Vukadinovic, BS; Grant Duffy, BS; Debiao Li, PhD; Susan Cheng, MD; Daniel S. Berman, MD David Ouyang MD Alan C. Kwan MD
 
+![EchoNet-cardiac_mri Pipeline](https://github.com/echonet/cardiac_mri/blob/main/Figure_README.png)
+
 
 ### Prerequisites for the project
 
