@@ -5,7 +5,7 @@ On the other side, echocardiography is the most common modality for assessing ca
 In our project, we hypothesized that deep learning applied to echocardiography could predict CMR-based measurements (Wall-motion abnormalities, Myocardial Scar, native T1 time, T2 time, ECV fraction) using a large-dataset contaims more than 1400 patients who have both CMR and Echo within 30days.
 
 
-**Presentation:** European Society of Cardiology 2024 (London)
+**Presentation:** [European Society of Cardiology 2024 (London)](https://www.escardio.org/Congresses-Events/ESC-Congress)
 
 **Preprint:** [Using Deep learning to Predict Cardiovascular Magnetic Resonance Findings from Echocardiography Videos Short title: Deep learning prediction of CMR from echocardiography](https://pubmed.ncbi.nlm.nih.gov/38699330/)
 
@@ -30,12 +30,15 @@ git clone https://github.com/echonet/cardiac_mri.git
 pip install -r requirements.txt
 ```
 
-We used [R2plus1D model](https://arxiv.org/abs/1711.11248) for echocadriography video. In R2+1D model, the architecture decomposes all 3D convolutions into 2D spatial convolutions followed by temporal convolutions to incorporate both spatial as well as temporal information while minimizing model size.
+We used [R2plus1D model](https://arxiv.org/abs/1711.11248) for echocadriography video. 
+In R2+1D model, the architecture decomposes all 3D convolutions into 2D spatial convolutions followed by temporal convolutions to incorporate both spatial as well as temporal information while minimizing model size.
 
 All you need to prepare is 
-- Echocardiography Dataset (112*112 AVI video, A4c/A2c/PLAX echocardiography views) 
-(Note: our datasets were de-identified and electrocardiogram and respirometer tracings were removed.)
+- Echocardiography Dataset (We used 112*112 AVI video, A4c/A2c/PLAX echocardiography views) 
+(Note: our datasets were de-identified and electrocardiogram and respirometer tracings were masked.)
 - manifest file (csv) that contain `Study_Unique_ID`, `Video_Unique_ID`, `frames`, `TARGET` (TARGET will be  0/1 in binarized outcome and numerical value if regression task)
+
+We released model weights and inference code for binarized outcomes.
 
 We prepared Sample csv files 
 - A4C_Scar_Binary.csv
@@ -43,6 +46,12 @@ We prepared Sample csv files
 - A2c_ECVfraction_Regression.csv
 
 ```sh
-python XXXXXXXXX.py --dataset YOUR_DATASET_PATH --manifest_path YOURMANIFEST_PATH.csv
+python predict.py --variable <WMA/Scar/NativeT1/T2/ECV> --dataset YOUR_DATASET_PATH --manifest_path YOURMANIFEST_PATH.csv
 ```
+
+Following running this code, you will get `prediction.csv`. 
+This prediction.csv has the outputs (preds) and filename and labels. 
+We used glm model in R to synthesize these outputs (A4c / A2c/ Plax) to calculate global AUROC.
+
+
 Fin.
