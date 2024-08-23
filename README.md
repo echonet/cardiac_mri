@@ -45,8 +45,6 @@ We released model weights and inference code for binarized outcomes.
 We prepared Sample csv files 
 - A4C_Scar_Binary.csv
 - A2C_ECVfraction_Binary.csv
-- A2c_ECVfraction_Regression.csv
-
 ```sh
 python predict.py --variable <WMA/Scar/NativeT1/T2/ECV> --dataset YOUR_DATASET_PATH --manifest_path YOURMANIFEST_PATH.csv
 ```
