@@ -38,20 +38,18 @@ In R2+1D model, the architecture decomposes all 3D convolutions into 2D spatial 
 All you need to prepare is 
 - Echocardiography Dataset (We used 112*112 AVI video, A4c/A2c/PLAX echocardiography views) 
 (Note: our datasets were de-identified and electrocardiogram and respirometer tracings were masked.)
-- manifest file (csv) that contain `Study_Unique_ID`, `Video_Unique_ID`, `frames`, `TARGET` (TARGET will be  0/1 in binarized outcome and numerical value if regression task)
+- Disease LABEL file (csv) that contain `Study_Unique_ID`, `Video_Unique_ID`, `frames`, `LABEL` (LABEL will be  0/1 in binarized outcome and numerical value if regression task)
 
-We released model weights and inference code for binarized outcomes.
+We released model weights and inference code for binarized outcomes (only Wall motion abnormalities and Scar).
 
-We prepared Sample csv files 
-- A4C_Scar_Binary.csv
-- A2C_ECVfraction_Binary.csv
+
 ```sh
-python predict.py --variable <WMA/Scar/NativeT1/T2/ECV> --dataset YOUR_DATASET_PATH --manifest_path YOURMANIFEST_PATH.csv
+python predict.py  --dataset YOUR_112*112_EchoDataset  --label ['Wall_Motion', 'Scar'] --view ['A4C', 'A2C', 'PLAX']
+#python predict.py --dataset /workspace/data/a2c_avi --label Wall_Motion --view A2C
 ```
 
-Following running this code, you will get `prediction.csv`. 
-This prediction.csv has the outputs (preds) and filename and labels. 
+Following running this code, you will get `Prediction_<VIEW>_<LABEL>.csv`. 
+This prediction.csv has the outputs (preds) and filename and labels (From Disease LABEL file that you have). 
 We used glm model in R to synthesize these outputs (A4c / A2c/ Plax) to calculate global AUROC.
-
 
 Fin.

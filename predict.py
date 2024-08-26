@@ -28,17 +28,17 @@ with torch.no_grad():
     
     #Weight label setting    
     if args.label == "Wall_Motion" and args.view == "A4C":
-        weights_path = "/workspace/yuki/EchoNet_cardiac_mri/model_weights/A4C_WallMotoion.pt"    
+        weights_path = "/workspace/YOUR PATH/model_weights/A4C_WallMotoion.pt"    
     elif args.label == "Wall_Motion" and args.view == "A2C":
-        weights_path = "/workspace/yuki/EchoNet_cardiac_mri/model_weights/A2C_WallMotoion.pt"
+        weights_path = "/workspace/YOUR PATH/model_weights/A2C_WallMotoion.pt"
     elif args.label == "Wall_Motion" and args.view == "PLAX":
-        weights_path = "/workspace/yuki/EchoNet_cardiac_mri/model_weights/PLAX_WallMotoion.pt"
+        weights_path = "/workspace/YOUR PATH/model_weights/PLAX_WallMotoion.pt"
     elif args.label == "Scar" and args.view == "A4C":
-        weights_path = "/workspace/yuki/EchoNet_cardiac_mri/model_weights/A4C_Scar.pt"
+        weights_path = "/workspace/YOUR PATH/model_weights/A4C_Scar.pt"
     elif args.label == "Scar" and args.view == "A2C":
-        weights_path = "/workspace/yuki/EchoNet_cardiac_mri/model_weights/A2C_Scar.pt"
+        weights_path = "/workspace/YOUR PATH/model_weights/A2C_Scar.pt"
     elif args.label == "Scar" and args.view == "PLAX":
-        weights_path = "/workspace/yuki/EchoNet_cardiac_mri/model_weights/PLAX_Scar.pt"
+        weights_path = "/workspace/YOUR PATH/model_weights/PLAX_Scar.pt"
     
     data_path = args.dataset    #update the manifest file when needed
     video_files = glob.glob(os.path.join(data_path, "*.avi"))
