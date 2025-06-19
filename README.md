@@ -9,7 +9,10 @@ In our project, we hypothesized that deep learning applied to echocardiography c
 
 **Preprint:** [Using Deep learning to Predict Cardiovascular Magnetic Resonance Findings from Echocardiography Videos Short title: Deep learning prediction of CMR from echocardiography](https://pubmed.ncbi.nlm.nih.gov/38699330/)
 
-Yuki Sahashi, MD, MSc; Milos Vukadinovic, BS; Grant Duffy, BS; Debiao Li, PhD; Susan Cheng, MD; Daniel S. Berman, MD David Ouyang MD Alan C. Kwan MD
+**Paper (JASE 2025):** [Using Deep learning to Predict Cardiovascular Magnetic Resonance Findings from Echocardiography Videos Short title: Deep learning prediction of CMR from echocardiography](https://pubmed.ncbi.nlm.nih.gov/40451472/))
+
+Sahashi Y, Vukadinovic M, Duffy G, Li D, Cheng S, Berman DS, Ouyang D, Kwan AC. Using Deep learning to Predict Cardiovascular Magnetic Resonance Findings from Echocardiography Videos. J Am Soc Echocardiogr. 2025 May 30:S0894-7317(25)00276-7. doi: 10.1016/j.echo.2025.05.016. Epub ahead of print. PMID: 40451472.
+
 
 ![EchoNet-cardiac_mri Pipeline](https://github.com/echonet/cardiac_mri/blob/main/Figure_README.png)
 
